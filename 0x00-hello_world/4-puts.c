@@ -1,6 +1,13 @@
-#include<stdio.h>
+#include <stdio.h>
+
 /*
-* Description - a function to print a string
+* 4-puts
+*
+* Description: all execution is done in the main function.
+* Prints a string using puts()
+*/
+
+/**
 * main - prints a string using the puts() function and returns 0.
 * @void not passing in any arguments
 *
@@ -8,6 +15,6 @@
 */
 int main(void)
 {
-puts("\"Programming is like building a multilingual puzzle");
-return (0);
+	puts("\"Programming is like building a multilingual puzzle");
+	return (0);
 }
