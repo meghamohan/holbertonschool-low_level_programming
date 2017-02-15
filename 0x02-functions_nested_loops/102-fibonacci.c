@@ -6,7 +6,7 @@
  */
 int main(void)
 {
-	int sum, n, n1, n2, temp;
+	unsigned long sum, n, n1, n2, temp;
 
 	n1 = 0;
 	n2 = 1;
@@ -17,9 +17,9 @@ int main(void)
 	n1 = n2;
 	n2 = temp;
 	if (n <= 49)
-	printf("%d,", temp);
+	printf("%lu,", temp);
 	else
-	printf("%d\n", temp);
+	printf("%lu\n", temp);
 	}
 return (0);
 }
