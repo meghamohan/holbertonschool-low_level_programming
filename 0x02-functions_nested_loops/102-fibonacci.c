@@ -12,7 +12,7 @@ int main(void)
 	n2 = 1;
 	temp = 0;
 
-	for (n = 0 ; n < 50 ; n++)
+	for (n = 0 ; n <= 50 ; n++)
 	{
 		temp = n1 + n2;
 		n1 = n2;
