@@ -1,35 +1,40 @@
 #include <stdio.h>
-#include "holberton.h"
+
 /**
- * main - prints numbers from 1 to 100
- * Return: on success 0.
- *
- */
+* main - entry point
+* Return: null
+*/
+
 int main(void)
 {
-	int i;
+	int count = 1;
 
-	for (i = 1; i <= 100; i++)
+	while (count <= 100)
 	{
-		if (i % 3 == 0 && i % 5 == 0)
+		if (count % 3 == 0 && count % 5 == 0)
 		{
 			printf("FizzBuzz ");
 		}
-		else if (i % 3 == 0)
+		else if (count % 3 == 0 && count % 5 != 0)
 		{
 			printf("Fizz ");
 		}
-		else if (i % 5 == 0)
+		else if (count % 3 != 0 && count % 5 == 0)
 		{
-			printf("Buzz ");
+			if (count != 100)
+			{
+				printf("Buzz ");
+			}
+			else
+			{
+				printf("Buzz");
+			}
 		}
 		else
 		{
-			printf("%d ", i);
+			printf("%d ", count);
 		}
+		count++;
 	}
-
 	printf("\n");
-
-	return (0);
 }
