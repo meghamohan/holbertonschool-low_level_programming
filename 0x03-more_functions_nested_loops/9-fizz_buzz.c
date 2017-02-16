@@ -1,40 +1,23 @@
 #include <stdio.h>
-
 /**
 * main - entry point
-* Return: null
+* Return: 0
 */
-
 int main(void)
 {
-	int count = 1;
+	unsigned char num;
 
-	while (count <= 100)
+	for (num = 1; num <= 100; num++)
 	{
-		if (count % 3 == 0 && count % 5 == 0)
-		{
-			printf("FizzBuzz ");
-		}
-		else if (count % 3 == 0 && count % 5 != 0)
-		{
-			printf("Fizz ");
-		}
-		else if (count % 3 != 0 && count % 5 == 0)
-		{
-			if (count != 100)
-			{
-				printf("Buzz ");
-			}
-			else
-			{
-				printf("Buzz");
-			}
-		}
-		else
-		{
-			printf("%d ", count);
-		}
-		count++;
+		if (num % 3 != 0 && num % 5 != 0)
+			printf("%d", num);
+		if (num % 3 == 0)
+			printf("%s", "Fizz");
+		if (num % 5 == 0)
+			printf("%s", "Buzz");
+		if (num != 100)
+			putchar(' ');
 	}
-	printf("\n");
+	putchar('\n');
+	return (0);
 }
