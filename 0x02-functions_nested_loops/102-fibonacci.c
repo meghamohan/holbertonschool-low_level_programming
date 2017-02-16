@@ -14,18 +14,18 @@ int main(void)
 
 	for (n = 0 ; n < 50 ; n++)
 	{
-	temp = n1 + n2;
-	n1 = n2;
-	n2 = temp;
-	printf("%lu", temp);
-	if (n <= 49)
-	{
-	printf(", ");
+		temp = n1 + n2;
+		n1 = n2;
+		n2 = temp;
+		printf("%lu", temp);
+		if (n <= 49)
+		{
+			printf(", ");
+		}
+		else
+		{
+			printf("\n");
+		}
 	}
-	else
-	{
-	printf("\n");
-	}
-	}
-return (0);
+	return (0);
 }
