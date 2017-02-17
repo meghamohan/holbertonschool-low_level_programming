@@ -9,7 +9,7 @@
 
 int main(void)
 {
-	unsigned long num = 612852475143/2;
+	unsigned long num = 612852475143 / 2;
 	unsigned long i = 2;
 
 	while (num > i)
