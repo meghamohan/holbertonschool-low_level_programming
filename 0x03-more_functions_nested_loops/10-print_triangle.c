@@ -3,6 +3,7 @@
 
 /**
 * print_triangle - to print triangle followed by newline
+* @size: number of lines to print
 * Return: null
 */
 void print_triangle(int size)
