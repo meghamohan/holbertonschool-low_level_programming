@@ -1,5 +1,6 @@
 #include "holberton.h"
 
+
 /**
 * print_triangle - to print triangle followed by newline
 * Return: null
