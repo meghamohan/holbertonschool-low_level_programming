@@ -1,8 +1,8 @@
 #include "holberton.h"
 
 /**
-* _strlen - to find the length of a string
-* @s: char pointer
+* puts_half - to print second half of a string
+* @str: char pointer
 * Return: length of the string
 **/
 
@@ -12,7 +12,7 @@ void puts_half(char *str)
 
 	for (length = 0 ; str[length] != '\0' ; length++)
 		;
-	for (j = length / 2 ; j <= length ; j ++)
+	for (j = length / 2 ; j <= length ; j++)
 	{
 		_putchar(str[j]);
 	}
