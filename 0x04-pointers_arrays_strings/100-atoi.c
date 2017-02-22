@@ -30,13 +30,8 @@ int _atoi(char *s)
 		else
 		{
 			if (s[i] == '-')
-			{
+			{	
 				neg = neg * -1;
-				i = i + 1;
-				if (checkIfNum(s[i]) == 1)
-				{
-					result = result * 10 + (s[i] - '0');
-				}
 			}
 			else if (result != 0)
 			{
