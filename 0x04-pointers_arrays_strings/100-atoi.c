@@ -21,8 +21,6 @@ int _atoi(char *s)
 	int i = 0, neg = 1;
 	unsigned int result = 0;
 
-	printf("Checking %s\n", s);
-
 	while (s[i] != '\0')
 	{
 		if (checkIfNum(s[i]) == 1)
