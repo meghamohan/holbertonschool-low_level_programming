@@ -30,7 +30,7 @@ int _atoi(char *s)
 		else
 		{
 			if (s[i] == '-')
-			{	
+			{
 				neg = neg * -1;
 			}
 			else if (result != 0)
