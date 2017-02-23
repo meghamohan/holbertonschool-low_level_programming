@@ -1,8 +1,9 @@
 #include "holberton.h"
 /**
-* _strcat - concatenates the string
+* _strncpy - copies the string from n characters of src to dest
 * @dest: string to be concatenated
 * @src: string on which concatenation is done
+* @n: number of characters to be copied
 * Return: pointer to destination string
 **/
 char *_strncpy(char *dest, char *src, int n)
