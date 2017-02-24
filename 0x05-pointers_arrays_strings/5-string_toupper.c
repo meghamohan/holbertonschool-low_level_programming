@@ -1,18 +1,22 @@
 #include "holberton.h"
 /**
 * string_toupper - convert all lowercase letter to uppercase
-* @s : string to convert
+* @a : string to convert
 * Return: string
 **/
-char *string_toupper(char *s)
+char *string_toupper(char *a)
 {
-	while (*s != '\0')
+	int i;
+
+	i = 0;
+
+	while (a[i] != '\0')
 	{
-		if (*s >= 'a' && *s <= 'z')
+		if (a[i] >= 'a' && a[i] <= 'z')
 		{
-			*s = *s - 32;
+			a[i] = a[i] - 32;
 		}
-		s++;
+		i++;
 	}
-	return (s);
+	return (a);
 }
