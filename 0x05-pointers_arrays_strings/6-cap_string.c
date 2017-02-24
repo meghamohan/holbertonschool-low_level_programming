@@ -1,7 +1,7 @@
 #include "holberton.h"
 /**
-* string_toupper - convert all lowercase letter to uppercase
-* @a : string to convert
+* cap_string - capitalize all lowercase letter to uppercase
+* @s : string to convert
 * Return: string
 **/
 char *cap_string(char *s)
@@ -13,15 +13,14 @@ char *cap_string(char *s)
 	while (s[i] != '\0')
 	{
 		switch (s[i])
-		case ',' : case ';' : case '.' : case '!' : 
-		case '?' : case '"' : case '(' : case ')' : 
-		case '{' : case '}' : case ' ' : case '\n' : case '\t' :
+		case ',': case ';': case '.': case '!':
+		case '?': case '"': case '(': case ')':
+		case '{': case '}': case ' ': case '\n': case '\t':
 		{
 			if (s[i + 1] >= 95 && s[i + 1] <= 122)
 				s[i + 1] -= 32;
 		}
 	i++;
-		
 	}
 	return (s);
 }
