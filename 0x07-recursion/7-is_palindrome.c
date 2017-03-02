@@ -40,6 +40,6 @@ int check_string(char *s, int fi, int li)
 			return (1);
 		else
 			return (check_string(s, fi + 1, li - 1));
-//	else
-//		return (0);
+	else
+		return (0);
 }
