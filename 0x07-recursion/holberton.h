@@ -9,3 +9,6 @@ int is_prime_number(int n);
 int is_palindrome(char *s);
 int wildcmp(char *s1, char *s2);
 int do_recursion(int x, int y);
+int check_prime(int x, int y);
+int check_length(char *s);
+int check_string(char *s, int fi, int li);
