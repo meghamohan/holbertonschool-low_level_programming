@@ -1,6 +1,5 @@
 #include "holberton.h"
 #include <stdlib.h>
-
 /**
 * free_grid - frees 2d integer grid previously created by alloc_grid
 * @grid: pointer to array of int
@@ -13,5 +12,4 @@ void free_grid(int **grid, int height)
 
 	for (i = 0; i < height; i++)
 		free(grid[i]);
-	free(grid);
 }
