@@ -14,7 +14,7 @@ char *argstostr(int ac, char **av)
 	if (ac == 0 || av == NULL)
 		return (NULL);
 	size = 0;
-	/* count the number of chars in each string */
+
 	for (i = 0; i < ac; i++)
 	{
 		for (j = 0; av[i][j] != '\0'; j++)
@@ -31,8 +31,9 @@ char *argstostr(int ac, char **av)
 		for (j = 0; av[i][j] != '\0'; j++)
 		{
 			newStr[k] = av[i][j];
+			k++;
 		}
-		newStr[k + 1] = '\n';
+		newStr[k++] = '\n';
 	}
 	newStr[k] = '\0';
 	return (newStr);
