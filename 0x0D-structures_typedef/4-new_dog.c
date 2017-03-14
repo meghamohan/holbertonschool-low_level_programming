@@ -15,7 +15,6 @@ int _strlen(char *s)
 	while (s[i] != '\0')
 		i++;
 	i++;
-	printf("%d\n",i);
 	return (i);
 }
 
@@ -32,13 +31,11 @@ char *_strcpy(char *dest, char *src)
 	int i, length = _strlen(src);
 	char *retString;
 
-printf("inside strcpy function\n");
-	for (i = 0 ; i <= length ; i++);
+	for (i = 0 ; i <= length ; i++)
 	{
 		dest[i] = src[i];
 	}
 	retString = dest;
-//	printf("%s\n",retString);
 	return (retString);
 }
 
