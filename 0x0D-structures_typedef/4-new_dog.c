@@ -27,13 +27,13 @@ int _strlen(char *s)
 
 char *_strcpy(char *dest, char *src)
 {
-	int i, length = _strlen(src);
-	char retString;
+	int i;
+	char *retString;
 
-	i = 0;
-	for (i = 0 ; i <= length ; i++)
+	while (src[i] != '\0')
 	{
 		dest[i] = src[i];
+		i++;
 	}
 	retString = dest;
 	return (retString);
@@ -73,7 +73,7 @@ dog_t *new_dog(char *name, float age, char *owner)
 		}
 		else
 		{
-			fre(dog_copy);
+			free(dog_copy);
 		}
 	}
 	return (NULL);
