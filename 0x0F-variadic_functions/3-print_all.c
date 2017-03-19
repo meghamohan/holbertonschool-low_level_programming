@@ -1,7 +1,4 @@
 #include "variadic_functions.h"
-#include <stdarg.h>
-#include <stdlib.h>
-#include <stdio.h>
 
 /**
  * print_all - prints all lists passed to it
@@ -38,7 +35,7 @@ void print_all(const char * const format, ...)
 		case 's':
 			tempStr = va_arg(lists, char*);
 			if (tempStr != NULL)
-			
+			{	
 				printf("%s", tempStr);
 				break;
 			}
