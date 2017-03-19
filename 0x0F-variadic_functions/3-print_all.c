@@ -1,49 +1,48 @@
 #include "variadic_functions.h"
-
 /**
- * print_all - prints all lists passed to it
- * @format: list of argument types
- *
- * Return: void
- */
+* print_all - function that prints everything
+* @format: list of all arguments of all types
+*
+* Return: void
+**/
 void print_all(const char * const format, ...)
 {
-	va_list lists;
-	char *tempStr;
+	va_list list1;
 	int i;
+	char *tempString;
 
-	va_start(lists, format);
 	i = 0;
-	while (format == NULL)
+	if (format == NULL)
 	{
 		printf("\n");
 		return;
 	}
+	va_start(list1, format);
 	while (format[i] != '\0')
 	{
 		switch (format[i])
 		{
-		case 'c':
-			printf("%c", (char) va_arg(lists, int));
-			break;
-		case 'i':
-			printf("%d", va_arg(lists, int));
-			break;
-		case 'f':
-			printf("%f", (float) va_arg(lists, double));
-			break;
-		case 's':
-			tempStr = va_arg(lists, char*);
-			if (tempStr != NULL)
-			{	
-				printf("%s", tempStr);
+			case 'c':
+				printf("%c", va_arg(list1, int));
 				break;
-			}
-			printf("(nil)");
-			break;
+			case 'i':
+				printf("%d", va_arg(list1, int));
+				break;
+			case 'f':
+				printf("%f", va_arg(list1, double));
+				break;
+			case 's':
+				tempString = va_arg(list1, char*);
+				if (tempString == NULL)
+				{
+					printf("(nil)");
+					break;
+				}
+				printf("%s", tempString);
+				break;
 		}
-		if ((format[i] == 'c' || format[i] == 'i' || format[i] == 'f' ||
-		     format[i] == 's') && format[(i + 1)] != '\0')
+		if ((format[i] == 'c' || format[i] == 'i' || format[i] == 'f'
+			|| format[i] == 's') && format[i + 1] != '\0')
 			printf(", ");
 		i++;
 	}
