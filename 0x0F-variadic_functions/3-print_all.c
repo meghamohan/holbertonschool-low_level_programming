@@ -33,9 +33,9 @@ void print_all(const char * const format, ...)
 			break;
 		case 's':
 			tempString = va_arg(list1, char*);
-			if (tempstring != NULL)
+			if (tempString != NULL)
 			{
-				printf("%s", tempstring);
+				printf("%s", tempString);
 				break;
 			}
 			printf("(nil)");
