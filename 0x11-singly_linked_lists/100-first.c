@@ -1,4 +1,4 @@
-#include <stdio.h>
+#include "lists.h"
 
 /**
  * premain - prints something before main is executed
