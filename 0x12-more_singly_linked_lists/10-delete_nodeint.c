@@ -28,8 +28,9 @@ int delete_nodeint_at_index(listint_t **head, unsigned int index)
 	}
 	if (tempNode == NULL)
 		return (-1);
-	bufferNode = tempNode->next->next;
-	tempNode->next = bufferNode;
+	bufferNode = tempNode->next;
+	tempNode->next = bufferNode->next;
+	free(bufferNode);
 	return (1);
 
 }
