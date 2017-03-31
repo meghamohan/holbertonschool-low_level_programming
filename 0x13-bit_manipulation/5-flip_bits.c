@@ -8,17 +8,15 @@
  */
 unsigned int flip_bits(unsigned long int n, unsigned long int m)
 {
-	unsigned long int flipCounter = 0, size, i;
+	unsigned long int flipCounter = 0;
+	int count, i;
 
-	size = sizeof(n) * 8 - 1;
+	count = (sizeof(n) * 8) - 1;
 
-	for (i = 0; i <= size; i++);
+	for (i = 0 ; i <= count ; i++)
 	{
-		if ((n & 1) != (m & 1))
+		if (((n ^ m) >> i) & 1)
 			flipCounter++;
-		n = n >> i;
-		m = m >> i;
 	}
 	return (flipCounter);
-
 }
