@@ -24,7 +24,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 		return (0);
 	for (i = 0 ; i != letters ; i++)
 	{
-		writeReturn = write(STDOUT_FILENO, &buff, 1);
+		writeReturn = write(STDOUT_FILENO, &charbuffer, 1);
 		if (writeReturn == -1)
 			return (0);
 		readReturn = read(file, &charbuffer, 1);
