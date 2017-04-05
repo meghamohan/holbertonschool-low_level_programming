@@ -15,9 +15,9 @@ void readError(char *file)
 **/
 int main(int argc, char **argv)
 {
-	int dest, source, openReturn, closeReturn;
+	int dest, source, closeReturn;
 	int writeReturn, readReturn;
-	char *file2, *file1, buff[BUFFER];
+	char buff[BUFFER];
 	mode_t mode = S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH;
 
 	if (argc != 3)
@@ -25,36 +25,35 @@ int main(int argc, char **argv)
 		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
-	file1 = argv[1], file2 = argv[2];
 
-	source = open(file1, O_RDONLY);
+	source = open(argv[1], O_RDONLY);
 	if (source == -1)
-		readError(file1);
-	dest = open(file2, O_CREAT | O_WRONLY | O_TRUNC | O_RDONLY, mode);
+		readError(argv[1]);
+	dest = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC | O_RDONLY, mode);
 	if (dest == -1)
-		readError(file2);
+		readError(argv[2]);
 
 	readReturn = read(source, &buff, BUFFER);
 	if (readReturn == -1)
-		readError(file1);
+		readError(argv[1]);
 	while (readReturn > 0)
 	{
-		writeReturn = write(file2, &buff, readReturn);
+		writeReturn = write(dest, &buff, readReturn);
 		if (writeReturn == -1)
 		{
-			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file2);
+			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
 			exit(99);
 		}
-		readReturn = read(file1, &buff, BUFFER);
+		readReturn = read(source, &buff, BUFFER);
 		if (readReturn == -1)
-			readError(file1);
+			readError(argv[1]);
 	}
-	closeReturn = close(file1);
+	closeReturn = close(source);
 	if (closeReturn == -1)
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", file1), exit(100);
-	closeReturn = close(file2);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", source), exit(100);
+	closeReturn = close(dest);
 	if (closeReturn == -1)
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", file2), exit(100);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", dest), exit(100);
 
 	return (0);
 }
