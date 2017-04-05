@@ -8,31 +8,39 @@
 **/
 ssize_t read_textfile(const char *filename, size_t letters)
 {
-	int file, writeReturn, readReturn;
-	char charbuffer;
-	unsigned int i;
+	ssize_t writeReturn, readReturn, closeReturn;
+	char *buffer;
+	int file;
 
 	file = 0;
 	writeReturn = 0;
+	readReturn = 0;
+	closeReturn = 0;
+
 	if (!filename)
 		return (0);
+
 	file = open(filename, O_RDWR);
 	if (file == -1)
 		return (0);
-	readReturn = read(file, &charbuffer, 1);
+
+	buffer = malloc(sizeof(char) * letters);
+	if (buffer == NULL)
+		return (0);
+
+	readReturn = read(file, buffer, letters);
 	if (readReturn == -1)
 		return (0);
-	for (i = 0 ; i != letters ; i++)
-	{
-		writeReturn = write(STDOUT_FILENO, &charbuffer, 1);
-		if (writeReturn == -1)
-			return (0);
-		readReturn = read(file, &charbuffer, 1);
-		if (readReturn == -1)
-			return (0);
-	}
-	readReturn = close(file);
-	if (readReturn == -1)
+
+	writeReturn = write(STDOUT_FILENO, buffer, readReturn);
+	if (writeReturn == -1)
 		return (0);
-	return (i);
+
+	closeReturn = close(file);
+	if (closeReturn == -1)
+		return (0);
+
+	free(buffer);
+	
+	return (readReturn);
 }
