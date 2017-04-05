@@ -56,6 +56,10 @@ int main(int argc, char **argv)
 
 	if (argc != 3)
 		argError();
+	if (argv[1] == NULL)
+		readError(argv[1]);
+	if (argv[2] == NULL)
+		writeError(argv[2]);
 	source = open(argv[1], O_RDONLY);
 	if (source == -1)
 		readError(argv[1]);
