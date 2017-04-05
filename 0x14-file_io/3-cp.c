@@ -59,7 +59,7 @@ int main(int argc, char **argv)
 	source = open(argv[1], O_RDONLY);
 	if (source == -1)
 		readError(argv[1]);
-	dest = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC | O_RDONLY, mode);
+	dest = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, mode);
 	if (dest == -1)
 		readError(argv[2]);
 
