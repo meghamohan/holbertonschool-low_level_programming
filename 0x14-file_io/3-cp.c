@@ -65,7 +65,7 @@ int main(int argc, char **argv)
 		readError(argv[1]);
 	dest = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, mode);
 	if (dest == -1)
-		readError(argv[2]);
+		writeError(argv[2]);
 
 	readReturn = read(source, &buff, BUFFER);
 	if (readReturn == -1)
