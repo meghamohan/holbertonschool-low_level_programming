@@ -1,7 +1,7 @@
 #include "lists.h"
 
 /**
-* sum_dlistint - returns the sum of all the nodes in 
+* sum_dlistint - returns the sum of all the nodes in
 * the linkedlist slistint_t
 * @head: pointer to head of the linkedlist
 * Return: returns the sum of all the nodes
