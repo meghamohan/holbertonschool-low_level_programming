@@ -4,7 +4,7 @@
 * add_dnodeint - function to add a new node to the
 * end of the linkedlist dlistint_t
 * @head: pointer to head node of the linkedlist
-* n: value of n to be added to the node
+* @n: value of n to be added to the node
 * Return: returns address of the new element, or NULL if it failed
 **/
 dlistint_t *add_dnodeint(dlistint_t **head, const int n)
