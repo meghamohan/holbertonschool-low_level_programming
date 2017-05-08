@@ -2,7 +2,7 @@
 
 /**
 * delete_dnodeint_at_index - deletes the node at the
-*  given position 
+*  given position
 * @head: head node of the linkedlist
 * @index: index to delete node
 * Return: 1 if succesful,-1 if failed
