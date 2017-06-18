@@ -64,6 +64,7 @@ unsigned int partition(int array[], size_t size, int lo, int high)
 		{
 			i++;
 			swap(array, size, i, j);
+			print_array(array, size);
 		}
 	}
 	swap(array, size, (i + 1), high);
