@@ -29,22 +29,6 @@ void recursiveSort(int *array, size_t size, int lo, int high)
 }
 
 /**
- * swap - swaps two elements in an array
- * @array: array to swap in
- * @size: size of the array
- * @i: swapped with j
- * @j: swapped with i
- */
-void swap(int *array, size_t size, int i, int j)
-{
-	int tmp;
-
-	tmp = array[i];
-	array[i] = array[j];
-	array[j] = tmp;
-}
-
-/**
 * partition - finds the pivot point
 * @array: array passed
 * @size: size of array
@@ -55,6 +39,7 @@ void swap(int *array, size_t size, int i, int j)
 unsigned int partition(int array[], size_t size, int lo, int high)
 {
 	unsigned int i = 0, pivot, j;
+	int temp;
 
 	pivot = array[high];
 	i = (lo - 1);
@@ -63,11 +48,15 @@ unsigned int partition(int array[], size_t size, int lo, int high)
 		if (array[j] <= pivot)
 		{
 			i++;
-			swap(array, size, i, j);
+			temp = array[i];
+			array[i] = array[j];
+			array[j] = temp;
 			print_array(array, size);
 		}
 	}
-	swap(array, size, (i + 1), high);
+	temp = array[i + 1];
+	array[i + 1] = array[high];
+	array[high] = temp;
 	print_array(array, size);
 	return (i + 1);
 }
