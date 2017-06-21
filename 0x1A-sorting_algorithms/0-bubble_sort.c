@@ -20,20 +20,22 @@ void swap(int *a, int *b)
 **/
 void bubble_sort(int *array, size_t size)
 {
-	size_t i;
+	size_t i, j;
 	char sortingDone;
 
 	if (array == NULL || size < 2)
 		return;
-
-	while (1)
+	sortingDone = 0;
+	for (i = 0; i < size; i++)
 	{
+		if (sortingDone)
+			break;
 		sortingDone = 1;
-		for (i = 0; i < size; i++)
+		for (j = 0; j < size - i - 1; j++)
 		{
-			if (array[i] > array[i + 1])
+			if (array[j] > array[j + 1])
 			{
-				swap(&array[i], &array[i + 1]);
+				swap(&array[j], &array[j + 1]);
 				sortingDone = 0;
 				print_array(array, size);
 			}
@@ -43,7 +45,5 @@ void bubble_sort(int *array, size_t size)
 		* then break out of it
 		* as it means that the array is already sorted
 		*/
-		if (sortingDone == 1)
-			break;
 	}
 }
