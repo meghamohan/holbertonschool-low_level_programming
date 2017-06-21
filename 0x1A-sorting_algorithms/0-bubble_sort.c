@@ -20,20 +20,20 @@ void swap(int *a, int *b)
 **/
 void bubble_sort(int *array, size_t size)
 {
-	size_t i, j;
+	size_t i;
 	char sortingDone;
 
 	if (array == NULL || size < 2)
 		return;
 
-	for (i = 0; i < size; i++)
+	while (1)
 	{
 		sortingDone = 1;
-		for (j = 0; j < size - i - 1; j++)
+		for (i = 0; i < size; i++)
 		{
-			if (array[j] > array[j + 1])
+			if (array[i] > array[i + 1])
 			{
-				swap(&array[j], &array[j + 1]);
+				swap(&array[i], &array[i + 1]);
 				sortingDone = 0;
 				print_array(array, size);
 			}
