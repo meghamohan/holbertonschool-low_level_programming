@@ -45,7 +45,7 @@ unsigned int myListLen(listint_t **list)
  */
 void insertion_sort_list(listint_t **list)
 {
-	listint_t *temp1, *currNode, *prevNode;
+	listint_t *temp1 = NULL, *temp2 = NULL, *currNode, *prevNode;
 	unsigned int i, j;
 
 	if (!list || !(*list))
@@ -61,6 +61,7 @@ void insertion_sort_list(listint_t **list)
 			if (prevNode->n > currNode->n)
 			{
 				temp1 = prevNode->prev;
+				temp2 = currNode->next;
 				prevNode->prev = currNode;
 				prevNode->next = currNode->next;
 				currNode->prev = temp1;
@@ -69,6 +70,8 @@ void insertion_sort_list(listint_t **list)
 					temp1->next = currNode;
 				else
 					*list = currNode;
+				if (temp2)
+					temp2->prev = prevNode;
 				if (prevNode->next)
 					prevNode->next->prev = prevNode;
 				prevNode = currNode->prev;
