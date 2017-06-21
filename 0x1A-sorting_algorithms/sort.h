@@ -18,7 +18,6 @@ typedef struct listint_s
 	struct listint_s *next;
 } listint_t;
 
-/* Functions */
 void print_array(const int *array, size_t size);
 void print_list(const listint_t *list);
 
@@ -29,5 +28,5 @@ void quick_sort(int *array, size_t size);
 
 void recursiveSort(int *array, size_t size, int lo, int high);
 void swap(int *i, int *j);
-unsigned int partition (int array[], size_t size, int lo, int high);
+unsigned int partition(int array[], size_t size, int lo, int high);
 #endif
