@@ -1,5 +1,4 @@
 #include "sort.h"
-
 /**
  * quick_sort - sorts an array using quick sort algo
  * @array: array to be sorted
@@ -51,13 +50,17 @@ unsigned int partition(int array[], size_t size, int lo, int high)
 			temp = array[i];
 			array[i] = array[j];
 			array[j] = temp;
-			print_array(array, size);
+			if (i != j)
+				print_array(array, size);
 		}
 	}
-	temp = array[i + 1];
-	array[i + 1] = array[high];
-	array[high] = temp;
-	print_array(array, size);
+	if (array[i + 1] != array[high])
+	{
+		temp = array[i + 1];
+		array[i + 1] = array[high];
+		array[high] = temp;
+		print_array(array, size);
+	}
 	return (i + 1);
 }
 
