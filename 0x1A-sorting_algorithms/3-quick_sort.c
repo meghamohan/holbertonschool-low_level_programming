@@ -20,7 +20,7 @@ void quick_sort(int *array, size_t size)
  */
 void recursiveSort(int *array, size_t size, int lo, int high)
 {
-	int partitionPoint;
+	size_t partitionPoint;
 
 	if (high <= lo)
 		return;
@@ -39,7 +39,7 @@ void recursiveSort(int *array, size_t size, int lo, int high)
 */
 unsigned int partition(int array[], size_t size, int lo, int high)
 {
-	unsigned int i = 0, pivot, j;
+	int i = 0, pivot, j;
 	int temp;
 
 	pivot = array[high];
