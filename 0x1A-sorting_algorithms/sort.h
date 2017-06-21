@@ -28,6 +28,6 @@ void selection_sort(int *array, size_t size);
 void quick_sort(int *array, size_t size);
 
 void recursiveSort(int *array, size_t size, int lo, int high);
-void swap(int *array, size_t size, int i, int j);
+void swap(int *i, int *j);
 unsigned int partition (int array[], size_t size, int lo, int high);
 #endif
