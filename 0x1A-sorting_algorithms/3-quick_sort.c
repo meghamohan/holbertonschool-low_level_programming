@@ -63,4 +63,3 @@ unsigned int partition(int array[], size_t size, int lo, int high)
 	}
 	return (i + 1);
 }
-
