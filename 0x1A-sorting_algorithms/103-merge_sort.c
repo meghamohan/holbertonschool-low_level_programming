@@ -81,6 +81,7 @@ void MergeArray(int *array, int *copyArray, int lo, int mid, int hi)
 			array[i] = copyArray[s++];
 		}
 	}
+	printf("[Done]: ");
 	for (i = lo; i < hi - 1; i++)
 		printf("%d, ", array[i]);
 	printf("%d\n", array[i]);
