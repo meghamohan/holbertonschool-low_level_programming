@@ -1,4 +1,5 @@
 #include "sort.h"
+
 /**
  * merge_sort - sorts array of integers in ascending order using
  * top-down merge sort algorithm
@@ -8,11 +9,14 @@
 void merge_sort(int *array, size_t size)
 {
 	int *copyArray;
-	
+
 	if (array == NULL || size < 2)
 		return;
 	copyArray = malloc(sizeof(int) * size);
-	recurseMerge(array, copyArray, 0, size);
+	if (!copyArray)
+		return;
+	recurseMerge(array, copyArray, 0, size - 1);
+	free(copyArray);
 }
 /**
  * recurseMerge - recursively calls the function for splitting
@@ -26,11 +30,11 @@ void recurseMerge(int *array, int *copyArray, int lo, int hi)
 {
 	int mid;
 
-	if (lo >= hi - 1)
+	if (lo >= hi)
 		return;
-	mid = lo + (hi - lo) / 2;
+	mid = (lo + hi) / 2;
 	recurseMerge(array, copyArray, lo, mid);
-	recurseMerge(array, copyArray, mid, hi);
+	recurseMerge(array, copyArray, mid + 1, hi);
 	MergeArray(array, copyArray, lo, mid, hi);
 }
 
@@ -47,44 +51,32 @@ void recurseMerge(int *array, int *copyArray, int lo, int hi)
 void MergeArray(int *array, int *copyArray, int lo, int mid, int hi)
 {
 	int i;
-	int s, m;
+	int l, r;
 
-	s = lo;
-	m = mid;
+	l = lo;
+	r = mid + 1;
 	printf("Merging...\n");
 	printf("[left]: ");
-	for (i = lo; i < mid - 1; i++)
-		printf("%d, ", array[i]);
-	printf("%d\n", array[i]);
+	print_array(&array[lo], mid + 1 - lo);
 	printf("[right]: ");
-	for (i = mid; i < hi - 1; i++)
-		printf("%d, ", array[i]);
-	printf("%d\n", array[i]);
-	for (i = lo; i < hi; i++)
+	print_array(&array[mid + 1], hi - mid);
+
+	for (i = lo; l <= mid && r <= hi; i++)
 	{
-		copyArray[i] = array[i];
-	}
-	for (i = lo; i < hi; i++)
-	{
-		if (s >= mid)
-		{
-			array[i] = copyArray[m++];
-		}
-		else if (m >= hi)
-		{
-			array[i] = copyArray[s++];
-		}
-		else if (copyArray[m] < copyArray[s])
-		{
-			array[i] = copyArray[m++];
-		}
+		if (array[l] <= array[r])
+			copyArray[i] = array[l++];
 		else
-		{
-			array[i] = copyArray[s++];
-		}
+			copyArray[i] = array[r++];
 	}
+	/* merging the arrays from l */
+	while (l <= mid)
+		copyArray[i++] = array[l++];
+	/* meriging arrays from right */
+	while (r <= hi)
+		copyArray[i++] = array[r++];
+	for (i = 0; i <= hi; i++)
+		array[i] = copyArray[i];
+
 	printf("[Done]: ");
-	for (i = lo; i < hi - 1; i++)
-		printf("%d, ", array[i]);
-	printf("%d\n", array[i]);
+	print_array(copyArray, i);
 }
