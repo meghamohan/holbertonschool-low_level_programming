@@ -26,7 +26,7 @@ void recursiveSort(int *array, size_t size, int lo, int high)
 		return;
 	partitionPoint = partition(array, size, lo, high);
 	recursiveSort(array, size, lo, partitionPoint - 1);
-	recursiveSort(array, size, partitionPoint, high);
+	recursiveSort(array, size, partitionPoint + 1, high);
 }
 
 /**
