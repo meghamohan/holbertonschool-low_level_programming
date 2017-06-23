@@ -7,6 +7,7 @@
  *
  * @n: Integer stored in the node
  * @next: Pointer to the next element of the list
+ * @prev: pointer to prevuius nde
  */
 typedef struct listint_s
 {
@@ -26,4 +27,9 @@ void quick_sort(int *array, size_t size);
 void recursiveSort(int *array, size_t size, int lo, int high);
 void swap(int *i, int *j);
 unsigned int partition(int array[], size_t size, int lo, int high);
+
+void recurseMerge(int *array, int *copyArray, int lo, int hi);
+void MergeArray(int *array, int *copyArray, int lo, int mid, int hi);
+void merge_sort(int *array, size_t size);
+
 #endif
