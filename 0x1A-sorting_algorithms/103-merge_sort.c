@@ -8,7 +8,9 @@
 void merge_sort(int *array, size_t size)
 {
 	int *copyArray;
-
+	
+	if (array == NULL || size < 2)
+		return;
 	copyArray = malloc(sizeof(int) * size);
 	recurseMerge(array, copyArray, 0, size);
 }
