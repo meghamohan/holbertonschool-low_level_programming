@@ -44,7 +44,7 @@ void recurseMerge(int *array, int *copyArray, int lo, int hi)
  */
 void MergeArray(int *array, int *copyArray, int lo, int mid, int hi)
 {
-	int i, j, k;
+	int i;
 	int s, m;
 
 	s = lo;
