@@ -12,4 +12,4 @@ oclean:
 fclean:
 	clean oclean
 re:
-	all
+	oclean all
