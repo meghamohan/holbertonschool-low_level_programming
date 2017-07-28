@@ -14,9 +14,9 @@ binary_tree_t *binary_tree_uncle(binary_tree_t *node)
 {
 	binary_tree_t *myParent;
 
-	myParent = node->parent;
-	if (!node || !myParent)
+	if (!node || !node->parent)
 		return (NULL);
+	 myParent = node->parent;
 	/**
 	* if grandparents left node is node the parent node
 	* then that wou;d be the uncle
