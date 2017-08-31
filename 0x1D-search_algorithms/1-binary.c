@@ -8,7 +8,7 @@
 * @value: value to be searched in the array
 * Return: returns the position of valie on the array,
 * if not found it returns -1
-*/
+**/
 
 int binary_search(int *array, size_t size, int value)
 {
@@ -25,6 +25,7 @@ int binary_search(int *array, size_t size, int value)
 			printf("%d, ", array[i]);
 		printf("%d\n", array[i]);
 		mid = start + ((hi - start) / 2);
+		printf("mid = %d\n", mid); 
 		if (array[mid] == value)
 			return (mid);
 		if (value < array[mid])
@@ -34,3 +35,4 @@ int binary_search(int *array, size_t size, int value)
 	}
 	return (-1);
 }
+
