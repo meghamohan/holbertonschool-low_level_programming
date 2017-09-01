@@ -6,7 +6,7 @@
 * @array: points to the first element of the array
 * @size: size of the array
 * @value: value to be searched in the array
-* Return- returns the position of valie on the array,
+* Return: returns the position of valie on the array,
 * if not found it returns -1
 **/
 
@@ -34,4 +34,3 @@ int binary_search(int *array, size_t size, int value)
 	}
 	return (-1);
 }
-
